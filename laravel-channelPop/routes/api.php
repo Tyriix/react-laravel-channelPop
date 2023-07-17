@@ -13,7 +13,7 @@ use App\http\Controllers\ChannelPopController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::resource('channelpops', ChannelPopController::class);
+Route::resource('channels', ChannelPopController::class);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
