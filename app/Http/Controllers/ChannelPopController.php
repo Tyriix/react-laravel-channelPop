@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\ChannelPop;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+
 class ChannelPopController extends Controller
 {
     /**
@@ -12,7 +17,7 @@ class ChannelPopController extends Controller
      */
     public function index()
     {
-        //
+        return ChannelPop::select('id', 'channelName', 'population')->get();
     }
 
     /**
@@ -28,7 +33,23 @@ class ChannelPopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'channelName'=>'required',
+            'population'=>'required'
+        ]);
+
+        try{
+            ChannelPop::create($request->post());
+            return response()->json([
+                'message'=>'Channel has been created.'
+            ]);
+        }
+        catch(\Exception $e){
+            Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'An error occured. Channel not created.'
+            ], 500);
+        }
     }
 
     /**
@@ -36,7 +57,9 @@ class ChannelPopController extends Controller
      */
     public function show(ChannelPop $channelPop)
     {
-        //
+        return response()->json([
+            'channelPop'=>$channelPop
+        ]);
     }
 
     /**
@@ -52,7 +75,27 @@ class ChannelPopController extends Controller
      */
     public function update(Request $request, ChannelPop $channelPop)
     {
-        //
+        $request->validate([
+            'channelName'=>'required',
+            'population'=>'required'
+        ]);
+
+        try{
+            $channelPop->fill($request->post())->update();
+            $channelPop->save();
+
+            return response()->json([
+                'message'=>'ChannelPop has been updated.'
+            ]);
+        }
+        catch(\Exception $e)
+        {
+            Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'An error occured. Channel not updated.'
+            ],500);
+        }
+
     }
 
     /**
@@ -60,6 +103,17 @@ class ChannelPopController extends Controller
      */
     public function destroy(ChannelPop $channelPop)
     {
-        //
+        try{
+            $channelPop->delete();
+            return response()->json([
+                'message'=>'ChannelPop has been deleted.'
+            ],500);
+        }
+        catch(\Exception $e){
+            Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'An error occured. Channel not deleted.'
+            ],500);
+        }
     }
 }

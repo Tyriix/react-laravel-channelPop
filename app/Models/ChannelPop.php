@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ChannelPop extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['channelName', 'populaton'];
 }
+?>

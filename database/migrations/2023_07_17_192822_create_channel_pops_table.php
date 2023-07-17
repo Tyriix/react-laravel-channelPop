@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('channel_pops', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('channelName');
+            $table->integer('population');
             $table->timestamps();
         });
     }
