@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\ChannelPopController;
+use App\http\Controllers\ChannelController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,7 +13,7 @@ use App\http\Controllers\ChannelPopController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::resource('channels', ChannelPopController::class);
+Route::resource('channels', ChannelController::class);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
