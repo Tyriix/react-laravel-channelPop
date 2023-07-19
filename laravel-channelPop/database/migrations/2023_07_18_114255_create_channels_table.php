@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
-            $table->string('channelName');
-            $table->integer('population');
+            $table->string('channelName')->nullable()->default('');
+            $table->integer('population')->default(0);
             $table->timestamps();
         });
     }
