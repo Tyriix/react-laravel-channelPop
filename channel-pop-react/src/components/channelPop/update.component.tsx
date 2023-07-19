@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
@@ -84,7 +85,7 @@ export default function UpdateChannel(){
                       <Row> 
                           <Col>
                             <Form.Group controlId="ChannelName">
-                                <Form.Label>Nazwa kanału</Form.Label>
+                                <Form.Label>Channel Name</Form.Label>
                                 <Form.Control type="text" value={channelName} onChange={(event)=>{
                                   setChannelName(event.target.value)
                                 }}/>
@@ -94,7 +95,7 @@ export default function UpdateChannel(){
                       <Row className="my-3">
                           <Col>
                             <Form.Group controlId="Population">
-                                <Form.Label>Ilość</Form.Label>
+                                <Form.Label>Amount</Form.Label>
                                 <Form.Control as="textarea" rows={3} value={population} onChange={(event)=>{
                                   setPopulation(event.target.value)
                                 }}/>

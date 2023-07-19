@@ -25,9 +25,9 @@ export default function List() {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonColor: "#B12929",
+      cancelButtonColor: "#198754",
+      confirmButtonText: "Delete",
     }).then((result) => {
       return result.isConfirmed;
     });
@@ -79,13 +79,13 @@ export default function List() {
         </Col>
       </Row>
       <Row>
-        <Col>
-          <Table responsive borderless>
+        <Col xs="5">
+          <Table responsive="sm" borderless striped>
             <thead>
               <tr>
-                <th scope="col">Kanał</th>
-                <th scope="col">Ilość</th>
-                <th scope="col">Akcja</th>
+                <th scope="col">Channel</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -114,7 +114,9 @@ export default function List() {
             </tbody>
           </Table>
         </Col>
+        <Col>
         <PieChart channels={channels} />
+        </Col>
       </Row>
     </div>
   );

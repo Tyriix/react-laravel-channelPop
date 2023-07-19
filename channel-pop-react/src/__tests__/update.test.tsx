@@ -31,10 +31,10 @@ describe("UpdateChannel", () => {
       );
 
     await waitFor(() => {
-      expect(screen.getByLabelText("Nazwa kanału")).toHaveValue(mockChannel.channelName);
+      expect(screen.getByLabelText("Channel Name")).toHaveValue(mockChannel.channelName);
     });
     await waitFor(() => {
-        expect(screen.getByLabelText("Ilość")).toHaveValue(mockChannel.population);
+        expect(screen.getByLabelText("Amount")).toHaveValue(mockChannel.population);
     })
   });
 })

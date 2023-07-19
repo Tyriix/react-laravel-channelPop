@@ -2,7 +2,7 @@ import { useMemo,  } from "react";
 import { Chart } from "react-google-charts";
 
 export const options ={
-    title: "Kanały",
+    title: "Channels",
     pieSliceText: "value"
 }
 export interface PieChartProps {

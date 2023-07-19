@@ -10,7 +10,7 @@ function App() {
     <Navbar bg="primary">
       <Container>
         <Link to={"/"} className="navbar-brand text-white">
-          Basic Crud App
+          Recruitment Task
         </Link>
       </Container>
     </Navbar>
