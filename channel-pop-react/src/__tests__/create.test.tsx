@@ -1,4 +1,3 @@
-import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import CreateChannelPop from "../components/channelPop/create.component";
 import { BrowserRouter } from "react-router-dom";
@@ -25,7 +24,6 @@ test("renders the component without errors", () => {
   
     fireEvent.click(saveButton);
   
-    // Wait for the form submission and success message
     await screen.findByText("Channel has been created.");
   });
 
@@ -43,6 +41,5 @@ test("shows error message for invalid data", async () => {
 
   fireEvent.click(saveButton);
 
-  // Wait for the validation error message
   await screen.findByText("An error occurred. Channel not created.");
 });
