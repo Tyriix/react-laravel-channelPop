@@ -26,7 +26,7 @@ export default function PieChart({ channels }: PieChartProps){
     return(
         <Chart
         chartType="PieChart"
-        data={{chartData}}
+        data={chartData}
         options={options}
         width={"100%"}
         height={"400px"}
