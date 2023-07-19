@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import PieChart from "../pieChart.component";
+import PieChart from "./pieChart.component";
 import { Table, Col, Row, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 export default function List() {
