@@ -1,12 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useMemo,  } from "react";
 import { Chart } from "react-google-charts";
-import axios from "axios";
 
 export const options ={
     title: "Kanały",
     pieSliceText: "value"
 }
-interface PieChartProps {
+export interface PieChartProps {
   channels: any[];
 }
 export default function PieChart({ channels }: PieChartProps){
